@@ -1,21 +1,23 @@
-// // package main
+// package main
 
-// // import (
-// // 	"html/template"
-// // 	"net/http"
-// // )
+// import (
+// 	"fmt"
+// 	"html/template"
+// 	"net/http"
+// 	"reflect"
+// )
 
-// // type Todo struct {
-// // 	Title string
-// // 	Done  bool
-// // }
+// type Todo struct {
+// 	Title string
+// 	Done  bool
+// }
 
-// // type TodoPageData struct {
-// // 	PageTitle string
-// // 	Todos     []Todo
-// // }
+// type TodoPageData struct {
+// 	PageTitle string
+// 	Todos     []Todo
+// }
 
-// // // func main() {
+// func main() {
 // 	tmpl := template.Must(template.ParseFiles("layout.html"))
 // 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 // 		data := TodoPageData{
@@ -26,6 +28,8 @@
 // 				{Title: "Task 3", Done: false},
 // 			},
 // 		}
+// 		fmt.Println(data.PageTitle)
+// 		fmt.Println(reflect.TypeOf(data))
 // 		tmpl.Execute(w, data)
 // 	})
 // 	http.ListenAndServe(":80", nil)
